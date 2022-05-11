@@ -1,0 +1,21 @@
+<!-- Will take the content from boilerplate.ejs and apply normally with this file -->
+<% layout('layouts/boilerplate') %> 
+<h1>All campgrounds</h1>
+<a href="/campgrounds/new"><button class="btn btn-secondary my-3">Add Campground</button></a>
+<% for( let campground of campgrounds) { %>
+    <div class="card mb-3">
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="img-fluid" src="<%= campground.image %> ">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%= campground.title %> </h5>
+                    <p class="card-text"><%= campground.description %> </p>
+                    <p class="card-text"><%= campground.location %> </p>
+                    <a href="/campgrounds/<%= campground._id %> " class="btn btn-info">View <%= campground.title %> </a>
+                </div>
+            </div>
+        </div>
+    </div>     
+<% } %>
